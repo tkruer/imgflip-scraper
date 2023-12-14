@@ -1,0 +1,19 @@
+services:
+  - type: cron
+    name: imgflip-scraper
+    runtime: docker
+    schedule: "0 13,1 * * *" # Cron schedule for 5 AM and 5 PM PST (converted to UTC)
+    autoDeploy: false
+    
+envVarGroups:
+  - name: CHANGE_ME_DB_CONFIG
+    envVars:
+      - key: TURSO_DB_URL
+        value: postgresql://postgres:postgres@postgres:5432/postgres
+        sync: true  
+      - key: TURSO_DB_TOKEN
+        value: "asdf1234"
+        sync: true   
+      - key: SLACK_WEBHOOK_URL
+        value: "https://hooks.slack.com/services/CHANGE_ME"
+        sync: true 

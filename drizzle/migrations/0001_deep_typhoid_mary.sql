@@ -1,0 +1,1 @@
+ALTER TABLE ImgFlipMemes ADD `memeID` text;
